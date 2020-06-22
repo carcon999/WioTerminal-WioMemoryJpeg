@@ -4,7 +4,6 @@
 #include <LGFX_TFT_eSPI.hpp>
 
 static TFT_eSPI tft;               // TFT_eSPIがLGFXの別名として定義されます。
-static TFT_eSprite sprite(&tft);   // TFT_eSpriteがLGFX_Spriteの別名として定義されます。
 
 #define IMG_WIDTH  (320)
 #define IMG_HEIGHT (240)
@@ -15,10 +14,7 @@ void setup()
 {
   tft.init();
   tft.setRotation(1);
-  sprite.createSprite(IMG_WIDTH, IMG_HEIGHT);
-
-  sprite.drawJpg(img, sizeof(img), 0, 0, IMG_WIDTH, IMG_HEIGHT);
-  sprite.pushSprite(0, 0);
+  tft.drawJpg(img, sizeof(img), 0, 0, IMG_WIDTH, IMG_HEIGHT);
 }
 
 void loop() {
